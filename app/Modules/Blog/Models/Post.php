@@ -34,8 +34,11 @@ class Post extends Model
     /**
      * Get the category that owns the post.
      */
-    public function category(): BelongsTo
+    /**
+     * Get the comments for the post.
+     */
+    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(\App\Modules\Comments\Models\Comment::class);
     }
 }
