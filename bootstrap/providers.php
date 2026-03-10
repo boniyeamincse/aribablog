@@ -7,4 +7,5 @@ return [
     App\Modules\Comments\Providers\CommentsServiceProvider::class,
     App\Modules\Media\Providers\MediaServiceProvider::class,
     App\Modules\Categories\Providers\CategoriesServiceProvider::class,
+    App\Modules\Notifications\Providers\NotificationsServiceProvider::class,
 ];

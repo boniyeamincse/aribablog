@@ -108,6 +108,7 @@
             <nav>
                 <a href="/">Home</a>
                 @auth
+                    <a href="{{ route('notifications.settings') }}">Settings</a>
                     <a href="/dashboard">Dashboard</a>
                     <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                         @csrf
