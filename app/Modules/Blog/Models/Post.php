@@ -11,8 +11,18 @@ use App\Modules\Categories\Models\Category;
 use App\Modules\Categories\Models\Tag;
 use App\Modules\Comments\Models\Comment;
 
+use App\Modules\SEO\Models\SeoMetadata;
+
 class Post extends Model
 {
+    /**
+     * Get the SEO metadata for the post.
+     */
+    public function seo()
+    {
+        return $this->morphOne(SeoMetadata::class, 'seoble');
+    }
+
     protected $fillable = [
         'author_id',
         'category_id',

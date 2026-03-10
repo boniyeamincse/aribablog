@@ -8,4 +8,5 @@ return [
     App\Modules\Media\Providers\MediaServiceProvider::class,
     App\Modules\Categories\Providers\CategoriesServiceProvider::class,
     App\Modules\Notifications\Providers\NotificationsServiceProvider::class,
+    App\Modules\SEO\Providers\SeoServiceProvider::class,
 ];

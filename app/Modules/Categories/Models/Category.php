@@ -7,8 +7,18 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Modules\Blog\Models\Post;
 
+use App\Modules\SEO\Models\SeoMetadata;
+
 class Category extends Model
 {
+    /**
+     * Get the SEO metadata for the category.
+     */
+    public function seo()
+    {
+        return $this->morphOne(SeoMetadata::class, 'seoble');
+    }
+
     protected $fillable = ['name', 'slug', 'parent_id'];
 
     /**
