@@ -4,7 +4,12 @@ namespace App\Modules\Blog\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\User;
+use App\Modules\Categories\Models\Category;
+use App\Modules\Categories\Models\Tag;
+use App\Modules\Comments\Models\Comment;
 
 class Post extends Model
 {
@@ -34,11 +39,24 @@ class Post extends Model
     /**
      * Get the category that owns the post.
      */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Get the tags associated with the post.
+     */
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
     /**
      * Get the comments for the post.
      */
-    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function comments(): HasMany
     {
-        return $this->hasMany(\App\Modules\Comments\Models\Comment::class);
+        return $this->hasMany(Comment::class);
     }
 }
