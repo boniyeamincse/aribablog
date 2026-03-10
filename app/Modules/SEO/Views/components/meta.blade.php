@@ -2,8 +2,8 @@
 
 @php
     $seo = $model ? $model->seo : null;
-    $title = $seo->title ?? ($model->title ?? config('app.name'));
-    $description = $seo->description ?? ($model->excerpt ?? 'Abriba - A premium Laravel blog experience.');
+    $title = $seo->title ?? ($model->title ?? setting('site_title', config('app.name')));
+    $description = $seo->description ?? ($model->excerpt ?? setting('site_description', 'Abriba - A premium Laravel blog experience.'));
     $url = $seo->canonical_url ?? Request::url();
     $image = $seo->og_image ?? asset('images/og-default.jpg');
 @endphp
