@@ -11,14 +11,15 @@ app/
     │   ├── Controllers/          # Feature-specific Controllers
     │   ├── Models/               # Eloquent Models
     │   ├── Providers/            # Module Service Providers
-    │   ├── Routes/               # api.php and web.php for module
-    │   └── Services/             # Complex business logic (Design Pattern)
+    │   ├── Routes/               # Primary: web.php, Optional: api.php
+    │   ├── Services/             # Complex business logic
+    │   └── Views/                # Blade templates for this module
     ├── UserManagement/
     ├── SEO/
     └── [Other Modules...]
 docs/                             # Documentation blueprint
 public/                           # Compiled assets
-resources/                        # Views, Lang, raw assets
+resources/                        # Global Views, Lang, raw assets
 tests/                            # Unit and Feature tests
 ```
 
@@ -26,11 +27,15 @@ tests/                            # Unit and Feature tests
 
 ## Design Patterns
 
-### 1. Service-Repository Pattern
+### 1. Server-Side Rendering (SSR)
+Abriba is built on **Laravel Blade**. We prioritize SSR for unmatched SEO, performance, and simplicity. Each module manages its own frontend views.
+
+### 2. Service-Repository Pattern
 While Laravel promotes Eloquent usage, we use **Services** to encapsulate complex business logic, ensuring controllers remain thin and readable.
 
-### 2. Modular Routing
-Each module registers its own routes via its `ServiceProvider`. This prevents the main `web.php` and `api.php` from becoming bottlenecks.
+### 3. Modular View Loading
+Each module's `ServiceProvider` registers its views using `loadViewsFrom`. Example:
+`@include('Blog::list')`
 
 ### 3. Future-Proofing
 The modular structure allows seamless addition of:

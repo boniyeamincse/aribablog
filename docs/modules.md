@@ -10,12 +10,17 @@ Each module in Abriba is designed to be self-contained, following the "Service-P
 - Role-Based Access Control (Admin, Editor, Author, Subscriber)
 - Profile management with avatars.
 
-**Key Routes**:
-- `POST /api/register`
-- `POST /api/login`
-- `GET /api/user/profile`
+**Key Blade Views**:
+- `UserManagement::auth.login`
+- `UserManagement::auth.register`
+- `UserManagement::profile.edit`
 
-**Middleware**: `auth:sanctum`, `role:admin`
+**Key Routes**:
+- `GET /login`
+- `POST /login`
+- `GET /register`
+
+**Middleware**: `auth`, `role:admin`
 
 ---
 
@@ -25,10 +30,15 @@ Each module in Abriba is designed to be self-contained, following the "Service-P
 - Draft/Publish workflow.
 - Featured images and post scheduling.
 
+**Key Blade Views**:
+- `Blog::index` (Homepage/Post List)
+- `Blog::show` (Single Post)
+- `Blog::admin.create` (Post Editor)
+
 **Key Routes**:
-- `GET /blog` (List)
+- `GET /` (Public List)
 - `GET /blog/{slug}` (Detail)
-- `POST /admin/posts` (Store)
+- `GET /admin/posts/create` (Editor)
 
 **Services**: `PostService`, `SlugGenerator`
 

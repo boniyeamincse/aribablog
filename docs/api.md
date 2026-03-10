@@ -1,6 +1,7 @@
-# Abriba API Documentation (v1)
+# Abriba API Documentation (v1) [Optional]
 
-Abriba provides a robust RESTful API for headless integrations and mobile applications.
+> [!NOTE]
+> The API is an optional module for headless integrations. Abriba's primary frontend is built using **Laravel Blade**.
 
 ## Authentication
 All API requests require a Bearer Token obtained via the login endpoint.

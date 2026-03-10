@@ -1,10 +1,10 @@
-# Abriba - Premium Laravel Blog Engine
+# Abriba - Premium Laravel Blade Blog Engine
 
 [![Laravel Version](https://img.shields.io/badge/Laravel-12.x-red.svg)](https://laravel.com)
 [![PHP Version](https://img.shields.io/badge/PHP-8.2%2B-blue.svg)](https://php.net)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.md)
 
-**Abriba** is a modern, modular, and high-performance blog platform built with Laravel 12. Designed for scalability, SEO excellence, and developer productivity.
+**Abriba** is a modern, modular, and high-performance blog platform built with Laravel 12. Designed for SEO excellence using Laravel Blade (SSR) and a scalable modular architecture.
 
 ## 🚀 Quick Start
 
@@ -13,13 +13,16 @@
 git clone https://github.com/boniyeamincse/aribablog.git abriba
 cd abriba
 
-# Run the setup script (includes composer, npm, migrations)
+# Run the setup script
 composer run setup
+
+# Serve the application
+php artisan serve
 ```
 
 ## 🏗️ Architecture
 
-Abriba uses a **Module-Based Architecture** located in `app/Modules`. This provides a clean separation of concerns for features like User Management, SEO, and Media.
+Abriba uses a **Blade-Centric Modular Architecture** located in `app/Modules`. Each module contains its own Controllers, Models, and Blade Views.
 
 ## 📚 Documentation
 
